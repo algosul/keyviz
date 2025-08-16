@@ -26,16 +26,19 @@ class KeyvizApp extends StatelessWidget {
             ChangeNotifierProvider(create: (_) => KeyEventProvider()),
             ChangeNotifierProvider(create: (_) => KeyStyleProvider()),
           ],
-          child: const Material(
+          child: Material(
             type: MaterialType.transparency,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                ErrorView(),
-                KeyVisualizer(),
-                SettingsWindow(),
-                MouseVisualizer(),
-              ],
+            child: Consumer<KeyEventProvider>(
+              builder: (context, keyEvent, _) {
+                return Stack(
+                  children: [
+                    const ErrorView(),
+                    const KeyVisualizer(),
+                    if (keyEvent.styling) const SettingsWindow(),
+                    const MouseVisualizer(),
+                  ],
+                );
+              },
             ),
           ),
         ),

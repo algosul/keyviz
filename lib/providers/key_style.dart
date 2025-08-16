@@ -5,15 +5,19 @@ import 'package:keyviz/domain/vault/vault.dart';
 
 // base preset of the keycap
 enum KeyCapStyle {
-  minimal,
-  flat,
-  elevated,
-  plastic,
-  mechanical;
+  minimal("最小"),
+  flat("平铺按压"),
+  elevated("平铺升高"),
+  plastic("塑料键帽"),
+  mechanical("机械键帽");
   // retro;
 
+  const KeyCapStyle(this.label);
+
+  final String label;
+
   @override
-  String toString() => name.capitalize();
+  String toString() => label;
 }
 
 // text capitalization
@@ -23,6 +27,7 @@ enum TextCap {
   lower("tt");
 
   const TextCap(this.symbol);
+
   final String symbol;
 
   @override
@@ -31,11 +36,12 @@ enum TextCap {
 
 // modifier text length
 enum ModifierTextLength {
-  iconOnly("Icon Only"),
-  shortLength("Short Text"),
-  fullLength("Full Text");
+  iconOnly("仅图标"),
+  shortLength("简略信息"),
+  fullLength("全部信息");
 
   const ModifierTextLength(this.label);
+
   final String label;
 
   @override
@@ -49,6 +55,7 @@ enum VerticalAlignment {
   bottom(VuesaxIcons.alignBottom);
 
   const VerticalAlignment(this.iconName);
+
   final String iconName;
 }
 
@@ -59,17 +66,22 @@ enum HorizontalAlignment {
   right(VuesaxIcons.alignRight);
 
   const HorizontalAlignment(this.iconName);
+
   final String iconName;
 }
 
 // mouse animation type
 enum MouseClickAnimation {
-  static,
-  focus,
-  filled;
+  static("静态"),
+  focus("焦点"),
+  filled("填充");
+
+  const MouseClickAnimation(this.label);
+
+  final String label;
 
   @override
-  String toString() => name.capitalize();
+  String toString() => label;
 }
 
 // style provider of the keycap visualization
@@ -126,23 +138,27 @@ class KeyStyleProvider extends ChangeNotifier {
   // primary color to be used on flat keycap container
   // and elevated/isometric keycap's upper container
   Color _primaryColor1 = Colors.white;
+
   // second color for gradient
   Color _primaryColor2 = Colors.white;
 
   // secondary color to be used on
   // elevated/isometric keycap's bottom container
   Color _secondaryColor1 = Colors.black;
+
   // second color for gradient
   Color _secondaryColor2 = Colors.grey[600]!;
 
   // primary color to be used on modifiers keys
   Color _mPrimaryColor1 = const Color(0xffb8b8b8);
+
   // second color for gradient
   Color _mPrimaryColor2 = const Color(0xff545454);
 
   // secondary color to be used on
   // elevated/isometric keycap's bottom container
   Color _mSecondaryColor1 = Colors.deepPurple;
+
   // second color for gradient
   Color _mSecondaryColor2 = Colors.deepPurple;
 
@@ -192,13 +208,19 @@ class KeyStyleProvider extends ChangeNotifier {
   bool get differentColorForModifiers => _differentColorForModifiers;
 
   double get fontSize => _fontSize;
+
   Color get fontColor => _fontColor;
+
   Color get mFontColor => _mFontColor;
+
   TextCap get textCap => _textCap;
+
   ModifierTextLength get modifierTextLength => _modifierTextLength;
 
   VerticalAlignment get verticalAlignment => _verticalAlignment;
+
   HorizontalAlignment get horizontalAlignment => _horizontalAlignment;
+
   Alignment get childrenAlignment {
     switch (_verticalAlignment) {
       case VerticalAlignment.top:
@@ -240,8 +262,11 @@ class KeyStyleProvider extends ChangeNotifier {
   }
 
   bool get showIcon => _showIcon;
+
   bool get showSymbol => _showSymbol;
+
   bool get addPlusSeparator => _addPlusSeparator;
+
   Widget? get separator {
     return _addPlusSeparator
         ? Text(
@@ -256,33 +281,52 @@ class KeyStyleProvider extends ChangeNotifier {
   }
 
   bool get isGradient => _isGradient;
+
   Color get primaryColor1 => _primaryColor1;
+
   Color get primaryColor2 => _primaryColor2;
+
   Color get secondaryColor1 => _secondaryColor1;
+
   Color get secondaryColor2 => _secondaryColor2;
+
   Color get mPrimaryColor1 => _mPrimaryColor1;
+
   Color get mPrimaryColor2 => _mPrimaryColor2;
+
   Color get mSecondaryColor1 => _mSecondaryColor1;
+
   Color get mSecondaryColor2 => _mSecondaryColor2;
 
   bool get borderEnabled => _borderEnabled;
+
   Color get borderColor => _borderColor;
+
   Color get mBorderColor => _mBorderColor;
+
   double get borderWidth => _borderWidth;
+
   double get cornerSmoothing => _cornerSmoothing;
 
   bool get backgroundEnabled => _backgroundEnabled;
+
   Color get backgroundColor => _backgroundColor;
+
   Color get backgroundColorWithOpacity =>
       _backgroundColor.withOpacity(_backgroundOpacity);
+
   double get backgroundOpacity => _backgroundOpacity;
+
   double get backgroundSpacing => _fontSize * .5;
 
   Alignment get alignment => _alignment;
+
   double get margin => _margin;
 
   MouseClickAnimation get clickAnimation => _clickAnimation;
+
   double get cursorHighlightSize => _fontSize * 4;
+
   Color get clickColor => _clickColor;
 
   // key cap properties

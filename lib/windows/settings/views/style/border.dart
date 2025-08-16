@@ -15,7 +15,7 @@ class BorderView extends StatelessWidget {
     return Selector<KeyStyleProvider, bool>(
       selector: (_, keyStyle) => keyStyle.borderEnabled,
       builder: (context, enabled, _) => XExpansionTile(
-        title: "Border",
+        title: "边框",
         children: [
           Selector<KeyStyleProvider, bool>(
               selector: (_, keyStyle) => keyStyle.differentColorForModifiers,

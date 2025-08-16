@@ -13,7 +13,7 @@ class TypographyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return XExpansionTile(
-      title: "Typography",
+      title: "字体",
       children: [
         Selector<KeyStyleProvider, bool>(
           selector: (_, keyStyle) => keyStyle.differentColorForModifiers,
@@ -23,7 +23,7 @@ class TypographyView extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SubPanelItem(
-                        title: "Font Size",
+                        title: "字体大小",
                         child: Selector<KeyStyleProvider, double>(
                           selector: (_, keyStyle) => keyStyle.fontSize,
                           builder: (context, fontSize, _) => XSlider(
@@ -38,11 +38,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "Normal Color",
+                        title: "普通颜色",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "Normal Font Color",
+                            label: "普通字体颜色",
                             defaultValue: context.keyStyle.fontColor,
                             onChanged: (Color value) {
                               context.keyStyle.fontColor = value;
@@ -52,11 +52,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "Modifier Color",
+                        title: "编辑颜色（Edit Color）",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "Modifier Font Color",
+                            label: "编辑字体颜色（Edit Font Color）",
                             defaultValue: context.keyStyle.mFontColor,
                             onChanged: (Color value) {
                               context.keyStyle.mFontColor = value;
@@ -69,7 +69,7 @@ class TypographyView extends StatelessWidget {
                 : SubPanelItemGroup(
                     items: [
                       RawInputSubPanelItem(
-                        title: "Size",
+                        title: "大小",
                         suffix: "px",
                         defaultValue: context.keyStyle.fontSize.toInt(),
                         onChanged: (value) {
@@ -77,7 +77,7 @@ class TypographyView extends StatelessWidget {
                         },
                       ),
                       RawColorInputSubPanelItem(
-                        label: "Font Color",
+                        label: "字体颜色",
                         defaultValue: context.keyStyle.fontColor,
                         onChanged: (color) {
                           context.keyStyle.fontColor = color;

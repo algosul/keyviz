@@ -13,7 +13,7 @@ class LayoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return XExpansionTile(
-      title: "Layout",
+      title: "布局",
       children: [
         SubPanelItemGroup(
           items: [
@@ -77,7 +77,7 @@ class LayoutView extends StatelessWidget {
         ),
         const VerySmallColumnGap(),
         SubPanelItem(
-          title: "Icon",
+          title: "图标",
           child: Selector<KeyStyleProvider, bool>(
             selector: (_, keyStyle) => keyStyle.showIcon,
             builder: (context, showIcon, _) {
@@ -109,7 +109,7 @@ class LayoutView extends StatelessWidget {
         ),
         const VerySmallColumnGap(),
         SubPanelItem(
-          title: 'Add  "+"  Separator',
+          title: '添加【+】分隔符',
           child: Selector<KeyStyleProvider, bool>(
             selector: (_, keyStyle) => keyStyle.addPlusSeparator,
             builder: (context, addPlusSeparator, _) {

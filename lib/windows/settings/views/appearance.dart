@@ -18,9 +18,9 @@ class AppearanceTabView extends StatelessWidget {
       children: [
         if (context.keyEvent.screens.length > 1) ...[
           PanelItem(
-            title: "Display",
-            subtitle: "Change monitor/display for the visualisation. "
-                "A restart\nmay be required in case of unsual behaviour.",
+            title: "显示",
+            subtitle: "更改监视器/显示以进行可视化。"
+                "如果行为异常，可能需要重新启动。",
             action: Selector<KeyEventProvider, int>(
               selector: (_, keyEvent) => keyEvent.screenIndex,
               builder: (context, value, _) => XDropdown<int>(
@@ -29,7 +29,7 @@ class AppearanceTabView extends StatelessWidget {
                   context.keyEvent.screens.length,
                   (i) => i,
                 ),
-                labelBuilder: (option) => "Display ${option + 1}",
+                labelBuilder: (option) => "显示器 ${option + 1}",
                 onChanged: (value) => context.keyEvent.screenIndex = value,
               ),
             ),
@@ -37,9 +37,8 @@ class AppearanceTabView extends StatelessWidget {
           const Divider(),
         ],
         PanelItem(
-          title: "Alignment",
-          subtitle: "Position of the key visualization on the screen.\nIf "
-              "history is enabled, then the lastest keystroke\nwill be show here",
+          title: "对齐",
+          subtitle: "关键可视化在屏幕上的位置。如果启用了历史记录，则此处将显示最新的键",
           action: Selector<KeyStyleProvider, Alignment>(
             selector: (_, keyStyle) => keyStyle.alignment,
             builder: (context, alignment, _) => _AlignmentPicker(
@@ -52,9 +51,8 @@ class AppearanceTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Margin",
-          subtitle: "The spacing betweeen the visualization and "
-              "the edge of the screen",
+          title: "边距",
+          subtitle: "可视化效果和屏幕边缘之间的间距",
           actionFlex: 4,
           crossAxisAlignment: CrossAxisAlignment.center,
           action: Selector<KeyStyleProvider, double>(
@@ -69,8 +67,8 @@ class AppearanceTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Duration",
-          subtitle: "Amount of time the keys linger before disappearing",
+          title: "停留时间",
+          subtitle: "按键在消失前停留的时间",
           actionFlex: 4,
           crossAxisAlignment: CrossAxisAlignment.center,
           action: Selector<KeyEventProvider, int>(
@@ -87,7 +85,7 @@ class AppearanceTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Animation",
+          title: "动画",
           action: Selector<KeyEventProvider, KeyCapAnimationType>(
             selector: (_, keyEvent) => keyEvent.keyCapAnimation,
             builder: (context, animation, _) => XDropdown(
@@ -99,8 +97,8 @@ class AppearanceTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Animation Speed",
-          subtitle: "Higher the value, slower the animation",
+          title: "动画速度",
+          subtitle: "值越高，动画越慢",
           actionFlex: 4,
           crossAxisAlignment: CrossAxisAlignment.center,
           action: Selector<KeyEventProvider, int>(
@@ -162,15 +160,15 @@ class _AlignmentPicker extends StatelessWidget {
   ];
 
   static const _labels = [
-    /*0*/ "Top Left",
-    /*1*/ "Top Center",
-    /*2*/ "Top Right",
-    /*3*/ "Center Left",
-    /*4*/ "Center",
-    /*5*/ "Center Right",
-    /*6*/ "Bottom Left",
-    /*7*/ "Bottom Center",
-    /*8*/ "Bottom Right",
+    /*0*/ "左上角",
+    /*1*/ "顶部中心",
+    /*2*/ "右上角",
+    /*3*/ "左中",
+    /*4*/ "中心",
+    /*5*/ "右中",
+    /*6*/ "左下角",
+    /*7*/ "底部中心",
+    /*8*/ "右下角",
   ];
 
   static const _values = [

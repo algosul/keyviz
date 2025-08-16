@@ -72,8 +72,8 @@ class AboutView extends StatelessWidget {
                         defaultPadding * 1.5,
                       ).copyWith(right: defaultPadding * 4),
                       child: Text(
-                        "This is an alpha release, so bugs 🐛 are expected. "
-                        "If you find any bugs report the same!",
+                        "这是一个alpha测试版本，因此可能有BUG。"
+                        "如果您发现任何错误请报告给我们！",
                         style: context.textTheme.labelSmall?.copyWith(
                           fontSize: 14,
                         ),
@@ -116,7 +116,7 @@ class AboutView extends StatelessWidget {
                             onPressed: () => launchUrl(
                               Uri.parse("mailto:rahulmula10@gmail.com"),
                             ),
-                            tooltip: "Email",
+                            tooltip: "邮箱",
                             icon: const SvgIcon(icon: VuesaxIcons.mail),
                           ),
                         ],
@@ -144,17 +144,17 @@ class AboutView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "💻 From Dev",
+                      "💻 来自开发者的话",
                       style: context.textTheme.titleLarge,
                     ),
                     const VerySmallColumnGap(),
                     Text(
-                      "Hi 👋, I'm Rahul Mula, the developer of Keyviz. "
-                      "I'm an instructor, and I teach courses online. \n\n"
-                      "When recording my screen, I've always felt the need "
-                      "to show my keystrokes to the audience. That's when I "
-                      "decided to develop keyviz, and share it with others "
-                      "to help people like me.",
+                      "嗨，我是keyviz的开发者Rahul Mula。"
+                      "我是一名教练，我在线教课程。\n\n"
+                      "录制我的屏幕时，我总是觉得需要"
+                      "向观众展示我的击键。那是我的时候"
+                      "决定开发keyviz，并与他人分享"
+                      "帮助像我这样的人。",
                       style: context.textTheme.bodyLarge,
                     ),
                   ],
@@ -175,14 +175,14 @@ class AboutView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "💖 Support",
+                    "💖 支持",
                     style: context.textTheme.titleLarge,
                   ),
                   const VerySmallColumnGap(),
                   Text(
-                    "As keyviz is freeware, the only way I can earn is "
-                    "through your generous donations. It helps free my time "
-                    "and work more on keyviz.",
+                    "由于keyViz是免费软件，我唯一可以赚钱的方法是"
+                    "通过您的慷慨捐赠。这有助于解放我的时间"
+                    "并在keyviz上工作。",
                     style: context.textTheme.bodyLarge,
                   ),
                   const Spacer(),
@@ -192,7 +192,7 @@ class AboutView extends StatelessWidget {
                         onPressed: () => launchUrlString(
                           "https://github.com/sponsors/mulaRahul",
                         ),
-                        tooltip: "Github Sponsors",
+                        tooltip: "Github 赞助商",
                         icon: const SvgIcon(icon: "assets/img/github-logo.svg"),
                       ),
                       IconButton(

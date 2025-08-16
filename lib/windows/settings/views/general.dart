@@ -15,9 +15,23 @@ class GeneralTabView extends StatelessWidget {
     return Column(
       children: [
         PanelItem(
-          title: "Hotkey Filter",
-          subtitle: "Filter out letters, numbers, symbols, etc. "
-              "and only display hotkeys/keyboard shortcuts",
+          title: "最上层显示",
+          subtitle: "开关最上层显示（还没做呢》^《）",
+          action: Selector<KeyEventProvider, bool>(
+            selector: (_, keyEvent) => keyEvent.filterHotkeys,
+            builder: (_, filterHotkeys, __) => XSwitch(
+              value: filterHotkeys,
+              onChange: (bool value) {
+                context.keyEvent.filterHotkeys = value;
+              },
+            ),
+          ),
+        ),
+        const Divider(),
+        PanelItem(
+          title: "热键过滤器",
+          subtitle: "过滤字母，数字，符号等。"
+              "而且仅显示热键/键盘快捷键",
           action: Selector<KeyEventProvider, bool>(
             selector: (_, keyEvent) => keyEvent.filterHotkeys,
             builder: (_, filterHotkeys, __) => XSwitch(
@@ -34,16 +48,15 @@ class GeneralTabView extends StatelessWidget {
           builder: (_, filterHotkeys, __) => PanelItem(
             asRow: false,
             enabled: filterHotkeys,
-            title: "Ignore Keys",
-            subtitle: "Skip any keystroke starting with "
-                "the disabled modifiers below",
+            title: "忽略按键",
+            subtitle: "根据下面的控制键忽略按键",
             action: const _IgnoreKeyOptions(),
           ),
         ),
         const Divider(),
         PanelItem(
-          title: "Show History",
-          subtitle: "Keep previously pressed keystrokes in the view",
+          title: "显示历史记录",
+          subtitle: "将之前按下的键保留",
           action: Selector<KeyEventProvider, VisualizationHistoryMode>(
             selector: (_, keyEvent) => keyEvent.historyMode,
             builder: (context, historyMode, __) {
@@ -60,7 +73,7 @@ class GeneralTabView extends StatelessWidget {
         const Divider(),
         PanelItem(
           asRow: false,
-          title: "Visualizer Toggle Shortcut",
+          title: "可视化切换快捷方式",
           action: HotkeyInput(
             initialValue: context.keyEvent.keyvizToggleShortcut,
             onChanged: (value) => context.keyEvent.keyvizToggleShortcut = value,
@@ -83,7 +96,7 @@ class GeneralTabView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(defaultPadding * .6),
                 ),
               ),
-              child: const Text("Revert to defaults"),
+              child: const Text("还原为默认值"),
             ),
           ),
         ),
@@ -95,7 +108,7 @@ class GeneralTabView extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text("Do you want to revert to default settings?"),
+        title: const Text("您要恢复为默认设置吗？"),
         backgroundColor: context.colorScheme.primaryContainer,
         titleTextStyle: context.textTheme.titleLarge,
         actions: [
@@ -107,11 +120,11 @@ class GeneralTabView extends StatelessWidget {
 
               Navigator.of(context).pop();
             },
-            child: const Text("Revert"),
+            child: const Text("还原"),
           ),
           OutlinedButton(
             onPressed: Navigator.of(context).pop,
-            child: const Text("Cancel"),
+            child: const Text("取消"),
           ),
         ],
         elevation: 0,

@@ -14,10 +14,10 @@ class ColorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return XExpansionTile(
-      title: "Color",
+      title: "颜色",
       children: [
         SubPanelItem(
-          title: "Fill Type",
+          title: "填充类型",
           child: Selector<KeyStyleProvider, bool>(
             selector: (_, keyStyle) => keyStyle.isGradient,
             builder: (context, isGradient, _) {
@@ -75,7 +75,7 @@ class ColorView extends StatelessWidget {
             builder: (context, differentColors, _) => Row(
               children: [
                 Text(
-                  "Normal",
+                  "常规",
                   style: context.textTheme.titleSmall?.copyWith(
                     color: context.colorScheme.tertiary,
                   ),

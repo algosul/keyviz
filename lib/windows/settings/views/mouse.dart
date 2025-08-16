@@ -16,8 +16,8 @@ class MouseTabView extends StatelessWidget {
     return Column(
       children: [
         PanelItem(
-          title: "Visualize Clicks",
-          subtitle: "Show clicks when a mouse button is pressed",
+          title: "鼠标点击可视化",
+          subtitle: "按下鼠标按钮时显示单击",
           action: Selector<KeyEventProvider, bool>(
             selector: (_, keyEvent) => keyEvent.showMouseClicks,
             builder: (context, showMouseClicks, _) => XSwitch(
@@ -34,7 +34,7 @@ class MouseTabView extends StatelessWidget {
           builder: (context, enabled, _) {
             return PanelItem(
               enabled: enabled,
-              title: "Click Animation",
+              title: "单击动画",
               action: Selector<KeyStyleProvider, MouseClickAnimation>(
                 selector: (_, keyStyle) => keyStyle.clickAnimation,
                 builder: (context, value, _) {
@@ -55,11 +55,11 @@ class MouseTabView extends StatelessWidget {
           selector: (_, keyEvent) => keyEvent.showMouseClicks,
           builder: (context, enabled, _) => PanelItem(
             enabled: enabled,
-            title: "Click Color",
-            subtitle: "Color of the highlight around your mouse cursor",
+            title: "单击颜色",
+            subtitle: "鼠标光标周围高亮的颜色",
             actionFlex: 2,
             action: RawColorInputSubPanelItem(
-              label: "Mouse Click Color",
+              label: "鼠标单击颜色",
               defaultValue: context.keyStyle.clickColor,
               onChanged: (color) => context.keyStyle.clickColor = color,
             ),
@@ -70,8 +70,8 @@ class MouseTabView extends StatelessWidget {
           selector: (_, keyEvent) => keyEvent.showMouseClicks,
           builder: (_, enabled, __) => PanelItem(
             enabled: enabled,
-            title: "Keep Highlight",
-            subtitle: "Show the highlight around mouse cursor all time",
+            title: "保持高亮",
+            subtitle: "一直显示鼠标光标周围的高亮",
             action: Selector<KeyEventProvider, bool>(
               selector: (_, keyEvent) => keyEvent.highlightCursor,
               builder: (context, highlightCursor, _) => XSwitch(
@@ -85,12 +85,11 @@ class MouseTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Drag Threshold",
+          title: "阻力阈值",
           subtitle:
-              "Minimum distance to show Drag event. Set to a higher value "
-              "to avoid accidental drags.",
+              "显示阻力事件的最小距离。设置为更高的值，以避免意外阻力。",
           action: XNumberInput(
-            title: "Drag Threshold",
+            title: "阻力阈值",
             suffix: "px",
             defaultValue: context.keyEvent.dragThreshold.toInt(),
             onChanged: (value) {
@@ -100,9 +99,8 @@ class MouseTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "Show Mouse Events",
-          subtitle: "Visualize mouse events like click, drag, etc. "
-              "along with key events",
+          title: "显示鼠标事件",
+          subtitle: "可视化鼠标事件，例如点击，拖动等以及关键事件",
           action: Selector<KeyEventProvider, bool>(
             selector: (_, keyEvent) => keyEvent.showMouseEvents,
             builder: (context, showMouseEvents, _) => XSwitch(

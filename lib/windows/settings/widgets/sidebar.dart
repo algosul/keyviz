@@ -11,6 +11,7 @@ enum SettingsTab {
   about(VuesaxIcons.more);
 
   const SettingsTab(this.icon);
+
   final String icon;
 }
 
@@ -51,7 +52,13 @@ class SideBar extends StatelessWidget {
       children.add(
         _IconButton(
           icon: tab.icon,
-          tooltip: tab.name,
+          tooltip: switch (tab) {
+            SettingsTab.general => "常规",
+            SettingsTab.mouse => "鼠标",
+            SettingsTab.keycap => "键帽样式",
+            SettingsTab.appearance => "外观样式",
+            SettingsTab.about => "关于",
+          },
           onTap: () => onChange(tab),
           selected: currentTab == tab,
         ),

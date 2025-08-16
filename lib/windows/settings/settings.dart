@@ -19,7 +19,7 @@ class SettingsWindow extends StatelessWidget {
     return Selector<KeyEventProvider, bool>(
       selector: (_, keyEvent) => keyEvent.styling,
       builder: (_, show, __) {
-        return show ? const _SettingsWindow() : const SizedBox();
+        return show ? const _SettingsWindow() : const SizedBox.shrink();
       },
     );
   }

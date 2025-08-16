@@ -26,6 +26,7 @@ enum ModifierKey {
   function("Fn");
 
   const ModifierKey(this.label);
+
   final String label;
 
   String get keyLabel {
@@ -54,8 +55,10 @@ enum VisualizationHistoryMode {
   @override
   String toString() {
     return this == VisualizationHistoryMode.none
-        ? "None"
-        : "${name.capitalize()}ly";
+        ? "无"
+        : this == VisualizationHistoryMode.vertical
+            ? "垂直排列"
+            : "水平排列";
   }
 }
 
@@ -68,7 +71,20 @@ enum KeyCapAnimationType {
   slide;
 
   @override
-  String toString() => name.capitalize();
+  String toString() {
+    switch (this) {
+      case KeyCapAnimationType.none:
+        return "无动画";
+      case KeyCapAnimationType.fade:
+        return "淡入淡出";
+      case KeyCapAnimationType.wham:
+        return "冲击效果";
+      case KeyCapAnimationType.grow:
+        return "放大效果";
+      case KeyCapAnimationType.slide:
+        return "滑动效果";
+    }
+  }
 }
 
 extension on MouseEvent {
@@ -190,15 +206,23 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
   Screen get _currentScreen => _screens[_screenIndex];
 
   Map<String, Map<int, KeyEventData>> get keyboardEvents => _keyboardEvents;
+
   int get screenIndex => _screenIndex;
+
   List<Screen> get screens => _screens;
+
   bool get styling => _styling;
+
   bool get visualizeEvents => _visualizeEvents;
+
   bool get hasError => _hasError;
 
   bool get filterHotkeys => _filterHotkeys;
+
   Map<ModifierKey, bool> get ignoreKeys => _ignoreKeys;
+
   VisualizationHistoryMode get historyMode => _historyMode;
+
   Axis? get historyDirection {
     switch (_historyMode) {
       case VisualizationHistoryMode.none:
@@ -213,16 +237,27 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
   }
 
   int get lingerDurationInSeconds => _lingerDurationInSeconds;
+
   Duration get lingerDuration => Duration(seconds: _lingerDurationInSeconds);
+
   int get animationSpeed => _animationSpeed;
+
   Duration get animationDuration => Duration(milliseconds: _animationSpeed);
+
   KeyCapAnimationType get keyCapAnimation => _keyCapAnimation;
+
   bool get noKeyCapAnimation => _keyCapAnimation == KeyCapAnimationType.none;
+
   bool get showMouseClicks => _visualizeEvents ? _showMouseClicks : false;
+
   bool get highlightCursor => _highlightCursor;
+
   bool get showMouseEvents => _showMouseEvents;
+
   double get dragThreshold => _dragThreshold;
+
   Offset get cursorOffset => _cursorOffset;
+
   bool get mouseButtonDown => _mouseButtonDown;
 
   bool get _ignoreHistory =>
@@ -846,18 +881,18 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
         items: [
           MenuItem(
             key: "toggle",
-            label: _visualizeEvents ? "✗ Turn Off" : "✓ Turn On",
+            label: _visualizeEvents ? "✗ 关闭" : "✓ 打开",
           ),
           MenuItem(
             key: "settings",
-            label: "Settings",
-            toolTip: "Open settings window",
+            label: "设置",
+            toolTip: "打开设置窗口",
           ),
           MenuItem.separator(),
           MenuItem(
             key: "quit",
-            label: "Quit",
-            toolTip: "Close Keyviz",
+            label: "退出",
+            toolTip: "关闭Keyviz",
           ),
         ],
       ),
