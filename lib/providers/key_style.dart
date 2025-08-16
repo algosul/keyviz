@@ -37,8 +37,8 @@ enum TextCap {
 // modifier text length
 enum ModifierTextLength {
   iconOnly("仅图标"),
-  shortLength("简略信息"),
-  fullLength("全部信息");
+  shortLength("缩写"),
+  fullLength("不缩写");
 
   const ModifierTextLength(this.label);
 

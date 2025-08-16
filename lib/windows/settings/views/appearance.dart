@@ -16,26 +16,26 @@ class AppearanceTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (context.keyEvent.screens.length > 1) ...[
-          PanelItem(
-            title: "显示",
-            subtitle: "更改监视器/显示以进行可视化。"
-                "如果行为异常，可能需要重新启动。",
-            action: Selector<KeyEventProvider, int>(
-              selector: (_, keyEvent) => keyEvent.screenIndex,
-              builder: (context, value, _) => XDropdown<int>(
-                value: value,
-                options: List.generate(
-                  context.keyEvent.screens.length,
-                  (i) => i,
-                ),
-                labelBuilder: (option) => "显示器 ${option + 1}",
-                onChanged: (value) => context.keyEvent.screenIndex = value,
+        PanelItem(
+          title: "显示器",
+          subtitle: "更改监视器/显示器以进行显示。"
+              "如果行为异常，可能需要重新启动。",
+          action: Selector<KeyEventProvider, int>(
+            selector: (_, keyEvent) => keyEvent.screenIndex,
+            builder: (context, value, _) => XDropdown<int>(
+              value: value,
+              options: List.generate(
+                context.keyEvent.screens.length,
+                (i) => i,
               ),
+              labelBuilder: (option) => context.keyEvent.screens.length > 1
+                  ? "显示器 ${option + 1}"
+                  : "唯一显示器",
+              onChanged: (value) => context.keyEvent.screenIndex = value,
             ),
           ),
-          const Divider(),
-        ],
+        ),
+        const Divider(),
         PanelItem(
           title: "对齐",
           subtitle: "关键可视化在屏幕上的位置。如果启用了历史记录，则此处将显示最新的键",

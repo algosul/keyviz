@@ -26,7 +26,7 @@ class BorderView extends StatelessWidget {
                     SubPanelItemGroup(
                       items: [
                         RawSubPanelItem(
-                          title: "Enable",
+                          title: "启用",
                           child: XSwitch(
                             value: enabled,
                             onChange: (value) {
@@ -49,7 +49,7 @@ class BorderView extends StatelessWidget {
                       const VerySmallColumnGap(),
                       SubPanelItem(
                         enabled: enabled,
-                        title: "Normal",
+                        title: "常规",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
@@ -64,7 +64,7 @@ class BorderView extends StatelessWidget {
                       const VerySmallColumnGap(),
                       SubPanelItem(
                         enabled: enabled,
-                        title: "Modifier",
+                        title: "【修饰】",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(

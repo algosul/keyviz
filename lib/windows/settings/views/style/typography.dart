@@ -38,11 +38,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "普通颜色",
+                        title: "颜色",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "普通字体颜色",
+                            label: "字体颜色",
                             defaultValue: context.keyStyle.fontColor,
                             onChanged: (Color value) {
                               context.keyStyle.fontColor = value;
@@ -52,11 +52,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "编辑颜色（Edit Color）",
+                        title: "编辑时的颜色",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "编辑字体颜色（Edit Font Color）",
+                            label: "编辑时的字体颜色",
                             defaultValue: context.keyStyle.mFontColor,
                             onChanged: (Color value) {
                               context.keyStyle.mFontColor = value;
@@ -91,7 +91,7 @@ class TypographyView extends StatelessWidget {
         SubPanelItemGroup(
           items: [
             RawSubPanelItem(
-              title: "Caps",
+              title: "大小写",
               child: Selector<KeyStyleProvider, TextCap>(
                 selector: (_, keyStyle) => keyStyle.textCap,
                 builder: (context, textCap, _) => Row(
@@ -128,7 +128,7 @@ class TypographyView extends StatelessWidget {
               ),
             ),
             RawSubPanelItem(
-              title: "Modifier",
+              title: "描述信息",
               child: SizedBox(
                 width: defaultPadding * 5,
                 child: Selector<KeyStyleProvider, ModifierTextLength>(

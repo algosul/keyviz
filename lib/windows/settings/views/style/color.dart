@@ -24,7 +24,7 @@ class ColorView extends StatelessWidget {
               return Row(
                 children: [
                   XTextButton(
-                    "Solid",
+                    "实心",
                     selected: !isGradient,
                     onTap: () => context.keyStyle.isGradient = false,
                   ),
@@ -36,13 +36,13 @@ class ColorView extends StatelessWidget {
                     builder: (context, disabled, _) {
                       return disabled
                           ? Tooltip(
-                              message: "Solid is fine",
+                              message: "实心 is fine",
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: defaultPadding * .6,
                                 ),
                                 child: Text(
-                                  "Gradient",
+                                  "梯度",
                                   style: context.textTheme.labelSmall?.copyWith(
                                     fontSize: 14,
                                     color: context.colorScheme.tertiary
@@ -52,7 +52,7 @@ class ColorView extends StatelessWidget {
                               ),
                             )
                           : XTextButton(
-                              "Gradient",
+                              "梯度",
                               selected: isGradient,
                               onTap: () => context.keyStyle.isGradient = true,
                             );
@@ -82,9 +82,7 @@ class ColorView extends StatelessWidget {
                 ),
                 const VerySmallRowGap(),
                 IconButton(
-                  tooltip: differentColors
-                      ? "Link modifier color"
-                      : "Separate modifier color",
+                  tooltip: differentColors ? "与【修饰】颜色同步" : "与【修饰】颜色分离",
                   onPressed: () {
                     context.keyStyle.differentColorForModifiers =
                         !differentColors;
@@ -97,7 +95,7 @@ class ColorView extends StatelessWidget {
                 ),
                 const VerySmallRowGap(),
                 Text(
-                  "Modifier",
+                  "【修饰】",
                   style: context.textTheme.titleSmall?.copyWith(
                     color: context.colorScheme.tertiary
                         .withOpacity(differentColors ? .25 : 1),
@@ -199,7 +197,7 @@ class ColorView extends StatelessWidget {
                       bottom: defaultPadding * .5,
                     ),
                     child: Text(
-                      "Modifier",
+                      "【修饰】",
                       style: context.textTheme.titleSmall?.copyWith(
                         color: context.colorScheme.tertiary,
                       ),

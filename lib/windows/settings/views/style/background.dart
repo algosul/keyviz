@@ -21,7 +21,7 @@ class BackgroundView extends StatelessWidget {
             SubPanelItemGroup(
               items: [
                 RawSubPanelItem(
-                  title: "Enable",
+                  title: "启用",
                   child: XSwitch(
                     value: enabled,
                     onChange: (value) {

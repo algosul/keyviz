@@ -94,7 +94,7 @@ class LayoutView extends StatelessWidget {
               keyStyle.keyCapStyle != KeyCapStyle.minimal,
           builder: (_, enabled, child) => SubPanelItem(
             enabled: enabled,
-            title: "Symbol",
+            title: "符号",
             child: child!,
           ),
           child: Selector<KeyStyleProvider, bool>(
