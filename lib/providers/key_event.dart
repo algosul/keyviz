@@ -48,43 +48,32 @@ enum ModifierKey {
 
 // key visualization history mode
 enum VisualizationHistoryMode {
-  none,
-  vertical,
-  horizontal;
+  none("无"),
+  vertical("垂直排列"),
+  horizontal("水平排列");
+
+  const VisualizationHistoryMode(this.label);
+
+  final String label;
 
   @override
-  String toString() {
-    return this == VisualizationHistoryMode.none
-        ? "无"
-        : this == VisualizationHistoryMode.vertical
-            ? "垂直排列"
-            : "水平排列";
-  }
+  String toString() => label;
 }
 
 // keycap animation style
 enum KeyCapAnimationType {
-  none,
-  fade,
-  wham,
-  grow,
-  slide;
+  none("无动画"),
+  fade("淡入淡出"),
+  wham("冲击效果"),
+  grow("放大效果"),
+  slide("滑动效果");
+
+  const KeyCapAnimationType(this.label);
+
+  final String label;
 
   @override
-  String toString() {
-    switch (this) {
-      case KeyCapAnimationType.none:
-        return "无动画";
-      case KeyCapAnimationType.fade:
-        return "淡入淡出";
-      case KeyCapAnimationType.wham:
-        return "冲击效果";
-      case KeyCapAnimationType.grow:
-        return "放大效果";
-      case KeyCapAnimationType.slide:
-        return "滑动效果";
-    }
-  }
+  String toString() => label;
 }
 
 extension on MouseEvent {

@@ -29,19 +29,19 @@ class RawKeyEventDataMouse extends RawKeyEventData {
   String get keyLabel {
     switch (id) {
       case leftClickId:
-        return "Left Click";
+        return "左键";
 
       case middleClickId:
-        return "Middle Click";
+        return "中键";
 
       case rightClickId:
-        return "Right Click";
+        return "右键";
 
       case dragId:
-        return "Drag";
+        return "拖动";
 
       case scrollId:
-        return "Scroll";
+        return "缩放";
     }
     return '';
   }

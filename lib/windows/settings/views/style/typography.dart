@@ -38,11 +38,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "颜色",
+                        title: "常规键颜色",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "字体颜色",
+                            label: "常规键的字体颜色",
                             defaultValue: context.keyStyle.fontColor,
                             onChanged: (Color value) {
                               context.keyStyle.fontColor = value;
@@ -52,11 +52,11 @@ class TypographyView extends StatelessWidget {
                       ),
                       const VerySmallColumnGap(),
                       SubPanelItem(
-                        title: "编辑时的颜色",
+                        title: "控制键颜色",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "编辑时的字体颜色",
+                            label: "控制键的字体颜色",
                             defaultValue: context.keyStyle.mFontColor,
                             onChanged: (Color value) {
                               context.keyStyle.mFontColor = value;

@@ -109,7 +109,7 @@ class LayoutView extends StatelessWidget {
         ),
         const VerySmallColumnGap(),
         SubPanelItem(
-          title: '添加【+】分隔符',
+          title: '添加"+"分隔符',
           child: Selector<KeyStyleProvider, bool>(
             selector: (_, keyStyle) => keyStyle.addPlusSeparator,
             builder: (context, addPlusSeparator, _) {

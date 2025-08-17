@@ -24,7 +24,7 @@ class ColorView extends StatelessWidget {
               return Row(
                 children: [
                   XTextButton(
-                    "实心",
+                    "单色",
                     selected: !isGradient,
                     onTap: () => context.keyStyle.isGradient = false,
                   ),
@@ -36,13 +36,13 @@ class ColorView extends StatelessWidget {
                     builder: (context, disabled, _) {
                       return disabled
                           ? Tooltip(
-                              message: "实心 is fine",
+                              message: "仅单色可用",
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: defaultPadding * .6,
                                 ),
                                 child: Text(
-                                  "梯度",
+                                  "渐变",
                                   style: context.textTheme.labelSmall?.copyWith(
                                     fontSize: 14,
                                     color: context.colorScheme.tertiary
@@ -52,7 +52,7 @@ class ColorView extends StatelessWidget {
                               ),
                             )
                           : XTextButton(
-                              "梯度",
+                              "渐变",
                               selected: isGradient,
                               onTap: () => context.keyStyle.isGradient = true,
                             );
@@ -75,14 +75,14 @@ class ColorView extends StatelessWidget {
             builder: (context, differentColors, _) => Row(
               children: [
                 Text(
-                  "常规",
+                  "常规键",
                   style: context.textTheme.titleSmall?.copyWith(
                     color: context.colorScheme.tertiary,
                   ),
                 ),
                 const VerySmallRowGap(),
                 IconButton(
-                  tooltip: differentColors ? "与【修饰】颜色同步" : "与【修饰】颜色分离",
+                  tooltip: differentColors ? "与【控制键】颜色同步" : "与【控制键】颜色分离",
                   onPressed: () {
                     context.keyStyle.differentColorForModifiers =
                         !differentColors;
@@ -95,7 +95,7 @@ class ColorView extends StatelessWidget {
                 ),
                 const VerySmallRowGap(),
                 Text(
-                  "【修饰】",
+                  "控制键",
                   style: context.textTheme.titleSmall?.copyWith(
                     color: context.colorScheme.tertiary
                         .withOpacity(differentColors ? .25 : 1),
@@ -129,7 +129,7 @@ class ColorView extends StatelessWidget {
                     ? SubPanelItemGroup(
                         items: [
                           RawGradientInputSubPanelItem(
-                            title: need2Colors ? "Primary" : "Color",
+                            title: need2Colors ? "主要" : "颜色",
                             initialColor1: context.keyStyle.primaryColor1,
                             initialColor2: context.keyStyle.primaryColor2,
                             onColor1Changed: (Color color) {
@@ -141,7 +141,7 @@ class ColorView extends StatelessWidget {
                           ),
                           if (need2Colors)
                             RawGradientInputSubPanelItem(
-                              title: "Secondary",
+                              title: "次要",
                               initialColor1: context.keyStyle.secondaryColor1,
                               initialColor2: context.keyStyle.secondaryColor2,
                               onColor1Changed: (Color color) {
@@ -158,7 +158,7 @@ class ColorView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SubPanelItem(
-                            title: need2Colors ? "Primary" : "Color",
+                            title: need2Colors ? "主要" : "颜色",
                             child: SizedBox(
                               width: defaultPadding * 10,
                               child: RawColorInputSubPanelItem(
@@ -172,7 +172,7 @@ class ColorView extends StatelessWidget {
                           if (need2Colors) ...[
                             const VerySmallColumnGap(),
                             SubPanelItem(
-                              title: "Secondary",
+                              title: "次要",
                               child: SizedBox(
                                 width: defaultPadding * 10,
                                 child: RawColorInputSubPanelItem(
@@ -197,7 +197,7 @@ class ColorView extends StatelessWidget {
                       bottom: defaultPadding * .5,
                     ),
                     child: Text(
-                      "【修饰】",
+                      "控制键",
                       style: context.textTheme.titleSmall?.copyWith(
                         color: context.colorScheme.tertiary,
                       ),
@@ -207,7 +207,7 @@ class ColorView extends StatelessWidget {
                       ? SubPanelItemGroup(
                           items: [
                             RawGradientInputSubPanelItem(
-                              title: need2Colors ? "Primary" : "Color",
+                              title: need2Colors ? "主要" : "颜色",
                               initialColor1: context.keyStyle.mPrimaryColor1,
                               initialColor2: context.keyStyle.mPrimaryColor2,
                               onColor1Changed: (Color color) {
@@ -219,7 +219,7 @@ class ColorView extends StatelessWidget {
                             ),
                             if (need2Colors)
                               RawGradientInputSubPanelItem(
-                                title: "Secondary",
+                                title: "次要",
                                 initialColor1:
                                     context.keyStyle.mSecondaryColor1,
                                 initialColor2:
@@ -238,7 +238,7 @@ class ColorView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SubPanelItem(
-                              title: need2Colors ? "Primary" : "Color",
+                              title: need2Colors ? "主要" : "颜色",
                               child: SizedBox(
                                 width: defaultPadding * 10,
                                 child: RawColorInputSubPanelItem(
@@ -252,7 +252,7 @@ class ColorView extends StatelessWidget {
                             if (need2Colors) ...[
                               const VerySmallColumnGap(),
                               SubPanelItem(
-                                title: "Secondary",
+                                title: "次要",
                                 child: SizedBox(
                                   width: defaultPadding * 10,
                                   child: RawColorInputSubPanelItem(

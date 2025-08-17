@@ -17,7 +17,7 @@ class MouseTabView extends StatelessWidget {
       children: [
         PanelItem(
           title: "鼠标点击可视化",
-          subtitle: "按下鼠标按钮时显示单击",
+          subtitle: "点击鼠标时显示高亮",
           action: Selector<KeyEventProvider, bool>(
             selector: (_, keyEvent) => keyEvent.showMouseClicks,
             builder: (context, showMouseClicks, _) => XSwitch(
@@ -34,7 +34,7 @@ class MouseTabView extends StatelessWidget {
           builder: (context, enabled, _) {
             return PanelItem(
               enabled: enabled,
-              title: "单击动画",
+              title: "点击动画",
               action: Selector<KeyStyleProvider, MouseClickAnimation>(
                 selector: (_, keyStyle) => keyStyle.clickAnimation,
                 builder: (context, value, _) {
@@ -55,11 +55,11 @@ class MouseTabView extends StatelessWidget {
           selector: (_, keyEvent) => keyEvent.showMouseClicks,
           builder: (context, enabled, _) => PanelItem(
             enabled: enabled,
-            title: "单击颜色",
+            title: "高亮颜色",
             subtitle: "鼠标光标周围高亮的颜色",
             actionFlex: 2,
             action: RawColorInputSubPanelItem(
-              label: "鼠标单击颜色",
+              label: "鼠标高亮颜色",
               defaultValue: context.keyStyle.clickColor,
               onChanged: (color) => context.keyStyle.clickColor = color,
             ),
@@ -85,11 +85,10 @@ class MouseTabView extends StatelessWidget {
         ),
         const Divider(),
         PanelItem(
-          title: "阻力阈值",
-          subtitle:
-              "显示阻力事件的最小距离。设置为更高的值，以避免意外阻力。",
+          title: "拖动阈值",
+          subtitle: "显示拖动事件的最小距离。设置为较高的值，可避免意外显示拖动事件。",
           action: XNumberInput(
-            title: "阻力阈值",
+            title: "拖动阈值",
             suffix: "px",
             defaultValue: context.keyEvent.dragThreshold.toInt(),
             onChanged: (value) {
@@ -100,7 +99,7 @@ class MouseTabView extends StatelessWidget {
         const Divider(),
         PanelItem(
           title: "显示鼠标事件",
-          subtitle: "可视化鼠标事件，例如点击，拖动等以及关键事件",
+          subtitle: "可视化鼠标事件，例如点击，拖动等事件",
           action: Selector<KeyEventProvider, bool>(
             selector: (_, keyEvent) => keyEvent.showMouseEvents,
             builder: (context, showMouseEvents, _) => XSwitch(

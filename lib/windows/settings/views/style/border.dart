@@ -37,7 +37,7 @@ class BorderView extends StatelessWidget {
                         if (!differentColors)
                           RawColorInputSubPanelItem(
                             enabled: enabled,
-                            label: "Border Color",
+                            label: "边框颜色",
                             defaultValue: context.keyStyle.borderColor,
                             onChanged: (color) {
                               context.keyStyle.borderColor = color;
@@ -49,11 +49,11 @@ class BorderView extends StatelessWidget {
                       const VerySmallColumnGap(),
                       SubPanelItem(
                         enabled: enabled,
-                        title: "常规",
+                        title: "常规键",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "Normal Border Color",
+                            label: "常规键边框颜色",
                             defaultValue: context.keyStyle.borderColor,
                             onChanged: (color) {
                               context.keyStyle.borderColor = color;
@@ -64,11 +64,11 @@ class BorderView extends StatelessWidget {
                       const VerySmallColumnGap(),
                       SubPanelItem(
                         enabled: enabled,
-                        title: "【修饰】",
+                        title: "控制键",
                         child: SizedBox(
                           width: defaultPadding * 10,
                           child: RawColorInputSubPanelItem(
-                            label: "Modifier Border Color",
+                            label: "【控制键】边框颜色",
                             defaultValue: context.keyStyle.mBorderColor,
                             onChanged: (color) {
                               context.keyStyle.mBorderColor = color;
@@ -83,7 +83,7 @@ class BorderView extends StatelessWidget {
           const VerySmallColumnGap(),
           SubPanelItem(
             enabled: enabled,
-            title: "Thickness",
+            title: "厚度",
             child: Selector<KeyStyleProvider, double>(
               selector: (_, keyStyle) => keyStyle.borderWidth,
               builder: (context, borderWidth, _) => XSlider(
@@ -97,7 +97,7 @@ class BorderView extends StatelessWidget {
           ),
           const VerySmallColumnGap(),
           SubPanelItem(
-            title: "Rounded Corner",
+            title: "圆角",
             child: Selector<KeyStyleProvider, double>(
               selector: (_, keyStyle) => keyStyle.cornerSmoothing,
               builder: (context, cornerSmoothing, _) {

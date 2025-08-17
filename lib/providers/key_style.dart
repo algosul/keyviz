@@ -22,16 +22,17 @@ enum KeyCapStyle {
 
 // text capitalization
 enum TextCap {
-  upper("TT"),
-  capitalize("Tt"),
-  lower("tt");
+  upper("TT", "大写"),
+  capitalize("Tt", "首字母大写"),
+  lower("tt", "小写");
 
-  const TextCap(this.symbol);
+  const TextCap(this.symbol, this.label);
 
   final String symbol;
+  final String label;
 
   @override
-  String toString() => name.capitalize();
+  String toString() => label;
 }
 
 // modifier text length
