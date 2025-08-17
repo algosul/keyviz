@@ -15,16 +15,19 @@ class GeneralTabView extends StatelessWidget {
     return Column(
       children: [
         PanelItem(
-          title: "最上层显示",
-          subtitle: "开关最上层显示（还没做呢》^《）",
-          action: Selector<KeyEventProvider, bool>(
-            selector: (_, keyEvent) => keyEvent.filterHotkeys,
-            builder: (_, filterHotkeys, __) => XSwitch(
-              value: filterHotkeys,
-              onChange: (bool value) {
-                context.keyEvent.filterHotkeys = value;
-              },
-            ),
+          title: "显示模式",
+          subtitle: "显示模式",
+          action: Selector<KeyEventProvider, TopWindowMode>(
+            selector: (_, keyEvent) => keyEvent.topWindow,
+            builder: (context, historyMode, __) {
+              return XDropdown<TopWindowMode>(
+                value: historyMode,
+                options: TopWindowMode.values,
+                onChanged: (value) {
+                  context.keyEvent.topWindow = value;
+                },
+              );
+            },
           ),
         ),
         const Divider(),

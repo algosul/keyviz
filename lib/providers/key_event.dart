@@ -46,6 +46,18 @@ enum ModifierKey {
   }
 }
 
+enum TopWindowMode {
+  none("不置顶"),
+  top("置顶");
+
+  const TopWindowMode(this.label);
+
+  final String label;
+
+  @override
+  String toString() => label;
+}
+
 // key visualization history mode
 enum VisualizationHistoryMode {
   none("无"),
@@ -98,6 +110,9 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
 
   // errors
   bool _hasError = false;
+
+  // 窗口置顶
+  TopWindowMode _topWindow = TopWindowMode.top;
 
   // toggle for styling, if true keeps the events
   // on display unless changed by others
@@ -206,6 +221,8 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
 
   bool get hasError => _hasError;
 
+  TopWindowMode get topWindow => _topWindow;
+
   bool get filterHotkeys => _filterHotkeys;
 
   Map<ModifierKey, bool> get ignoreKeys => _ignoreKeys;
@@ -261,6 +278,18 @@ class KeyEventProvider extends ChangeNotifier with TrayListener {
     if (_hasError) return;
     _styling = value;
     windowManager.setIgnoreMouseEvents(!value);
+    notifyListeners();
+  }
+
+  set topWindow(value) {
+    _topWindow = value;
+    if (_topWindow == TopWindowMode.top) {
+      // 置顶
+      windowManager.setAlwaysOnTop(true);
+    } else {
+      // 取消置顶
+      windowManager.setAlwaysOnTop(false);
+    }
     notifyListeners();
   }
 
