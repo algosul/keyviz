@@ -27,11 +27,11 @@ Keyviz也可以显示鼠标、键盘+鼠标的操作，比如 <kbd>Cmd</kbd> + <
 
 # 📥 安装
 
-在 [Github Releases](https://github.com/mulaRahul/keyviz/releases) 下载最新版，根据操作系统安装/解压即用，或者通过下面的包管理器安装
+在 [Github Releases](https://github.com/mulaRahul/algosul/releases) 下载最新版，根据操作系统安装/解压即用，或者通过下面的包管理器安装
 
 <details>
   <summary>🥄 Scoop</summary>
-    
+
   ```bash
   scoop bucket add extras # first, add the bucket
   scoop install keyviz
@@ -41,7 +41,7 @@ Keyviz也可以显示鼠标、键盘+鼠标的操作，比如 <kbd>Cmd</kbd> + <
 
 <details>
   <summary>🪟 Winget</summary>
-    
+
   ```bash
   winget install mulaRahul.Keyviz
   ```
@@ -52,8 +52,9 @@ Keyviz也可以显示鼠标、键盘+鼠标的操作，比如 <kbd>Cmd</kbd> + <
 
 <details>
   <summary>提示缺少<code>*.dll</code>？</summary>
-    
-  如果运行程序弹出了缺少`.dll`文件的错误，大概率是环境缺少了VC++运行库，你可以在[**这里**](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170)下载安装
+
+如果运行程序弹出了缺少`.dll`文件的错误，大概率是环境缺少了VC++运行库，你可以在[**这里
+**](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170)下载安装
 
 </details>
 
