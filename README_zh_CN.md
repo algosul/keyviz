@@ -1,5 +1,7 @@
 ![keyviz-2.0](previews/banner.svg)
 
+> 这是汉化分发版，原版请查看[这里](https://github.com/mulaRahul/keyviz)
+
 Keyviz，一个免费开源的实时键鼠输入可视化软件，让观众了解你在演示的过程中按下了什么快捷键
 
 **简体中文** | [English](./README.md)

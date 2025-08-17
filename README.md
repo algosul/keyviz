@@ -1,5 +1,8 @@
 ![keyviz-2.0](previews/banner.svg)
 
+> This is the Chinese distribution version, please check [here](https://github.com/mulaRahul/keyviz) for the original
+> version
+
 Keyviz is a free and open-source software to visualise your keystrokes and mouse actions in real time! Let your audience
 know what handy shortcuts/keys you're pressing during screencasts, presentations, collaborations, or whenever you need
 it.
